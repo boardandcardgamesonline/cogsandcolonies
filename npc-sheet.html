@@ -1,0 +1,185 @@
+{{!-- NPC / Creature Sheet Template --}}
+<form class="cnc-sheet cnc-npc-sheet" autocomplete="off">
+
+  <header class="cnc-sheet-header cnc-npc-header">
+    <div class="cnc-portrait">
+      <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="cnc-header-fields">
+      <input class="cnc-actor-name" type="text" name="name" value="{{actor.name}}" placeholder="Creature Name"/>
+      <div class="cnc-npc-meta">
+        <label>Size/Type
+          <select name="system.size" class="cnc-inline-edit" data-field="system.size">
+            <option value="small" {{#if (eq system.size "small")}}selected{{/if}}>Small</option>
+            <option value="medium" {{#if (eq system.size "medium")}}selected{{/if}}>Medium</option>
+            <option value="large" {{#if (eq system.size "large")}}selected{{/if}}>Large</option>
+            <option value="hazard" {{#if (eq system.size "hazard")}}selected{{/if}}>Hazard/Plant</option>
+          </select>
+        </label>
+        <label>Health Track
+          <select name="system.health.track" class="cnc-inline-edit" data-field="system.health.track">
+            <option value="standard" {{#if (eq system.health.track "standard")}}selected{{/if}}>Standard</option>
+            <option value="soldier" {{#if (eq system.health.track "soldier")}}selected{{/if}}>Soldier</option>
+            <option value="large" {{#if (eq system.health.track "large")}}selected{{/if}}>Large Creature</option>
+          </select>
+        </label>
+        <label>Movement
+          <input type="number" name="system.movement" value="{{system.movement}}" min="0" style="width:4rem"/>
+          ft
+        </label>
+      </div>
+    </div>
+  </header>
+
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="stats">Stats</a>
+    <a class="item" data-tab="attacks">Attacks & Traits</a>
+    <a class="item" data-tab="notes">Notes</a>
+  </nav>
+
+  <section class="sheet-body">
+
+    {{!-- STATS TAB --}}
+    <div class="tab" data-tab="stats">
+
+      {{!-- Health Track --}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Health Track</div>
+        <div class="cnc-health-pips">
+          {{#each healthStates as |state|}}
+          <div class="cnc-health-pip {{#if (eq ../system.health.current state)}}active{{/if}}"
+               data-state="{{state}}" title="{{state}}">
+            <span class="cnc-health-label">{{state}}</span>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{!-- Armor --}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Armor / Durability</div>
+        <div class="cnc-armor-row">
+          <label>Armor Label
+            <input type="text" name="system.armor.label" value="{{system.armor.label}}"
+                   class="cnc-inline-edit" data-field="system.armor.label"
+                   placeholder="e.g. 28 durability (iron chassis)"/>
+          </label>
+          <label>Current Durability
+            <input type="number" class="cnc-armor-current" value="{{system.armor.durability.value}}" min="0"/>
+          </label>
+          <label>Max Durability
+            <input type="number" name="system.armor.durability.max" value="{{system.armor.durability.max}}" min="0"/>
+          </label>
+        </div>
+      </div>
+
+      {{!-- Skills --}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Skills</div>
+        <div class="cnc-npc-skills">
+          {{#each system.skills as |skill key|}}
+          <div class="cnc-npc-skill-row">
+            <span class="cnc-skill-name">{{capitalize key}}</span>
+            <div class="cnc-skill-pips">
+              {{#times 3}}
+              <div class="cnc-skill-pip {{#if (lte this ../rank)}}filled{{/if}}"
+                   data-path="system.skills.{{../key}}.rank"
+                   data-rank="{{this}}"></div>
+              {{/times}}
+            </div>
+            <span class="cnc-skill-rank">Rank {{skill.rank}}</span>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+    </div>{{!-- /stats --}}
+
+    {{!-- ATTACKS & TRAITS TAB --}}
+    <div class="tab" data-tab="attacks">
+
+      {{!-- Attacks --}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Attacks</div>
+        {{#each system.attacks as |attack idx|}}
+        <div class="cnc-attack-card" data-idx="{{idx}}">
+          <div class="cnc-attack-header">
+            <strong>{{attack.name}}</strong>
+            <span class="cnc-badge">{{attack.damage}}</span>
+            {{#each attack.keywords}}
+            <span class="cnc-keyword-tag">{{this}}</span>
+            {{/each}}
+          </div>
+          {{#if attack.description}}
+          <div class="cnc-attack-desc">{{attack.description}}</div>
+          {{/if}}
+          <div class="cnc-attack-actions">
+            <button type="button" class="cnc-roll-damage cnc-btn-roll"
+              data-formula="{{attack.damage}}"
+              data-keywords="{{join attack.keywords ','}}"
+              data-label="{{attack.name}}">🎲 Roll</button>
+            <button type="button" class="cnc-roll-attack cnc-btn-secondary"
+              data-label="{{attack.name}} — To Hit">⚔ To Hit</button>
+          </div>
+        </div>
+        {{/each}}
+
+        {{!-- Quick attack editor for GM --}}
+        {{#if isGM}}
+        <div class="cnc-quick-attack-editor">
+          <div class="cnc-panel-subtitle">Add Attack</div>
+          <div class="cnc-attack-form">
+            <input type="text" class="cnc-new-attack-name" placeholder="Attack name"/>
+            <input type="text" class="cnc-new-attack-damage" placeholder="Damage (e.g. 2d6)"/>
+            <input type="text" class="cnc-new-attack-keywords" placeholder="Keywords (comma-sep)"/>
+            <button type="button" class="cnc-btn-tiny cnc-save-attack">+ Add</button>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+
+      {{!-- Formations --}}
+      {{#if system.formations.length}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Formations</div>
+        {{#each system.formations as |f|}}
+        <div class="cnc-formation-card">
+          <div class="cnc-formation-header">
+            <span class="cnc-badge">{{f.sigil}}</span>
+            {{#each f.intents}}
+            <span class="cnc-intent-chip">{{this}}</span>
+            {{/each}}
+          </div>
+          <div class="cnc-formation-desc">{{f.description}}</div>
+        </div>
+        {{/each}}
+      </div>
+      {{/if}}
+
+      {{!-- Traits --}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Traits</div>
+        {{#each system.traits as |trait|}}
+        <div class="cnc-trait">
+          <div class="cnc-trait-name">{{trait.name}}</div>
+          <div class="cnc-trait-desc">{{trait.description}}</div>
+        </div>
+        {{/each}}
+      </div>
+
+    </div>{{!-- /attacks --}}
+
+    {{!-- NOTES TAB --}}
+    <div class="tab" data-tab="notes">
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Loot / Rewards</div>
+        <textarea name="system.loot" class="cnc-notes-area" placeholder="Loot tables, XP rewards...">{{system.loot}}</textarea>
+      </div>
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">GM Notes</div>
+        <textarea name="system.notes" class="cnc-notes-area" placeholder="Tactics, encounter notes, lore...">{{system.notes}}</textarea>
+      </div>
+    </div>
+
+  </section>
+</form>

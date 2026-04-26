@@ -1,0 +1,101 @@
+{{!-- Item Sheet Template --}}
+<form class="cnc-sheet cnc-item-sheet" autocomplete="off">
+
+  <header class="cnc-item-header">
+    <img src="{{item.img}}" data-edit="img" class="cnc-item-img"/>
+    <div class="cnc-item-header-fields">
+      <input class="cnc-item-name" type="text" name="name" value="{{item.name}}" placeholder="Item Name"/>
+      <div class="cnc-item-type-badge cnc-badge">{{item.type}}</div>
+    </div>
+  </header>
+
+  <section class="cnc-item-body">
+
+    {{!-- Weapon fields --}}
+    {{#if (eq item.type "weapon")}}
+    <div class="cnc-field-group">
+      <label>Damage Formula
+        <input type="text" name="system.damage" value="{{system.damage}}" placeholder="1d6"/>
+      </label>
+      <label>Hands
+        <select name="system.hands">
+          <option value="one" {{#if (eq system.hands "one")}}selected{{/if}}>One-handed</option>
+          <option value="two" {{#if (eq system.hands "two")}}selected{{/if}}>Two-handed</option>
+        </select>
+      </label>
+      <label>Range (ft, 0 = melee)
+        <input type="number" name="system.range" value="{{system.range}}" min="0"/>
+      </label>
+    </div>
+    <div class="cnc-field-group">
+      <div class="cnc-keywords-editor">
+        <div class="cnc-panel-title">Keywords</div>
+        <div class="cnc-keyword-toggles">
+          {{#each keywords}}
+          <div class="cnc-keyword-toggle {{#if (contains ../../system.keywords id)}}active{{/if}}"
+               data-keyword="{{id}}" title="{{desc}}">{{label}}</div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{!-- Armor fields --}}
+    {{#if (eq item.type "armor")}}
+    <div class="cnc-field-group">
+      <label>Armor Type
+        <select name="system.armorType">
+          {{#each config.ARMOR_TYPES as |a key|}}
+          <option value="{{key}}" {{#if (eq ../system.armorType key)}}selected{{/if}}>{{a.label}}</option>
+          {{/each}}
+        </select>
+      </label>
+      <label>Durability
+        <input type="number" name="system.durability.max" value="{{system.durability.max}}" min="0"/>
+      </label>
+      <label>Movement
+        <input type="number" name="system.movement" value="{{system.movement}}" min="0"/>
+      </label>
+    </div>
+    {{/if}}
+
+    {{!-- Formation fields --}}
+    {{#if (eq item.type "formation")}}
+    <div class="cnc-field-group">
+      <label>Sigil
+        <select name="system.sigil">
+          {{#each config.SIGILS_T1 as |s|}}
+          <option value="{{s}}" {{#if (eq ../system.sigil s)}}selected{{/if}}>{{s}}</option>
+          {{/each}}
+        </select>
+      </label>
+      <label>Tier
+        <input type="number" name="system.tier" value="{{system.tier}}" min="1" max="3"/>
+      </label>
+      <label>Damage
+        <input type="text" name="system.damage" value="{{system.damage}}" placeholder="1d6"/>
+      </label>
+      <label>Range (ft)
+        <input type="number" name="system.range" value="{{system.range}}" min="0"/>
+      </label>
+    </div>
+    {{/if}}
+
+    {{!-- Cost --}}
+    <div class="cnc-field-group cnc-cost-row">
+      <label>Cost (Gold)
+        <input type="number" name="system.cost.gold" value="{{system.cost.gold}}" min="0"/>
+      </label>
+      <label>Cost (Silver)
+        <input type="number" name="system.cost.silver" value="{{system.cost.silver}}" min="0"/>
+      </label>
+    </div>
+
+    {{!-- Description --}}
+    <div class="cnc-description-editor">
+      <div class="cnc-panel-title">Description</div>
+      {{editor system.description target="system.description" editable=editable button=true owner=owner}}
+    </div>
+
+  </section>
+</form>

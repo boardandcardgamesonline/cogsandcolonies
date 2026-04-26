@@ -1,0 +1,152 @@
+{
+  "Actor": {
+    "character": {
+      "biography": "",
+      "background": {
+        "rank": 1,
+        "label": "Orphan",
+        "startingFunds": 1
+      },
+      "class": {
+        "archetype": "soldier",
+        "specialization": "close-combat"
+      },
+      "health": {
+        "track": "standard",
+        "current": "healthy",
+        "states": ["healthy","lightly-wounded","moderately-wounded","severely-wounded","disfigured","dead"]
+      },
+      "armor": {
+        "type": "none",
+        "durability": {
+          "value": 0,
+          "max": 0
+        },
+        "equipped": false
+      },
+      "currency": {
+        "gold": 0,
+        "silver": 0
+      },
+      "experience": {
+        "total": 0,
+        "spent": 0
+      },
+      "movement": 35,
+      "skills": {
+        "dodge": { "rank": 0, "max": 3 },
+        "block": { "rank": 0, "max": 3 },
+        "stealth": { "rank": 0, "max": 3 },
+        "athletics": { "rank": 0, "max": 3 },
+        "perception": { "rank": 0, "max": 3 },
+        "speechcraft": { "rank": 0, "max": 3 },
+        "mercantilism": { "rank": 0, "max": 3 },
+        "footwork": { "rank": 0, "max": 3 },
+        "investigate": { "rank": 0, "max": 3 },
+        "repair": { "rank": 0, "max": 3 },
+        "tech": { "rank": 0, "max": 3 },
+        "grenadier": { "rank": 0, "max": 3 },
+        "riding": { "rank": 0, "max": 3 },
+        "lightArmor": { "rank": 0, "max": 3 },
+        "mediumArmor": { "rank": 0, "max": 3 },
+        "heavyArmor": { "rank": 0, "max": 3 }
+      },
+      "classSkills": {
+        "formationWeaving": { "rank": 0, "max": 5 },
+        "bodyStrengthening": { "rank": 0, "max": 5 },
+        "sigilCarving": { "rank": 0, "max": 5 },
+        "marksmanship": { "rank": 0, "max": 5 },
+        "weaponMastery": { "rank": 0, "max": 5 },
+        "formationDiversity": { "rank": 0, "max": 5 },
+        "mageArmor": { "rank": 0, "max": 5 },
+        "trappist": { "rank": 0, "max": 5 },
+        "automatonDesign": { "rank": 0, "max": 5 }
+      },
+      "magic": {
+        "sigils": [],
+        "incompatibleSigil": "",
+        "activeFormations": [],
+        "intents": []
+      },
+      "attacks": [],
+      "traits": [],
+      "notes": ""
+    },
+    "npc": {
+      "biography": "",
+      "creatureType": "medium",
+      "size": "medium",
+      "health": {
+        "track": "standard",
+        "current": "healthy",
+        "states": ["healthy","lightly-wounded","moderately-wounded","severely-wounded","disfigured","dead"]
+      },
+      "armor": {
+        "type": "none",
+        "durability": {
+          "value": 0,
+          "max": 0
+        },
+        "label": ""
+      },
+      "movement": 30,
+      "skills": {
+        "dodge": { "rank": 0 },
+        "stealth": { "rank": 0 },
+        "block": { "rank": 0 },
+        "perception": { "rank": 0 },
+        "athletics": { "rank": 0 },
+        "footwork": { "rank": 0 }
+      },
+      "attacks": [],
+      "traits": [],
+      "formations": [],
+      "loot": "",
+      "cr": 1,
+      "notes": ""
+    }
+  },
+  "Item": {
+    "weapon": {
+      "description": "",
+      "damage": "1d6",
+      "hands": "one",
+      "range": 0,
+      "keywords": [],
+      "cost": { "gold": 0, "silver": 0 }
+    },
+    "armor": {
+      "description": "",
+      "armorType": "light",
+      "durability": { "value": 12, "max": 12 },
+      "movement": 35,
+      "penalties": [],
+      "cost": { "gold": 0, "silver": 0 }
+    },
+    "gear": {
+      "description": "",
+      "quantity": 1,
+      "cost": { "gold": 0, "silver": 0 }
+    },
+    "sigil": {
+      "description": "",
+      "tier": 1,
+      "element": "",
+      "combination": [],
+      "naturalIntents": []
+    },
+    "formation": {
+      "description": "",
+      "sigil": "",
+      "tier": 1,
+      "intents": [],
+      "damage": "1d6",
+      "range": 40,
+      "isActive": false
+    },
+    "trait": {
+      "description": "",
+      "source": ""
+    }
+  }
+}

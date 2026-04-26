@@ -1,0 +1,666 @@
+[
+  {
+    "name": "Razorwing Bat",
+    "type": "npc",
+    "img": "icons/creatures/mammals/bat-winged-brown.webp",
+    "system": {
+      "biography": "A colony predator native to the New World's cave networks and cliff faces. Their wings are edged with a naturally occurring metalite alloy grown from mineral-rich diets. Settlers near cliff settlements lose livestock regularly.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor", "durability": { "value": 0, "max": 0 } },
+      "movement": 40,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Wing Slash", "damage": "1d6", "keywords": ["armor-piercing"], "description": "Two attacks per turn — metalite-edged wings." }
+      ],
+      "traits": [
+        { "name": "Swarm", "description": "If three or more Razorwings attack the same target in one turn, that target gets -1 to their next dodge roll." }
+      ],
+      "formations": [],
+      "notes": "Colony predator. Usually encountered in groups of 3–8."
+    }
+  },
+  {
+    "name": "Ashback Lizard",
+    "type": "npc",
+    "img": "icons/creatures/reptiles/lizard-iguana-spined-tan.webp",
+    "system": {
+      "biography": "A desert and volcanic-fringe scavenger that has learned to weaponize the ash and ember terrain it inhabits. Common nuisance around mining operations and smelting camps.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "8 durability (hardened hide)", "durability": { "value": 8, "max": 8 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 2 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Bite", "damage": "1d6", "keywords": [], "description": "" },
+        { "name": "Ash Spit", "damage": "0", "keywords": ["blinded"], "description": "Range 10'. Blind. If it contacts skin, applies Burning. Recharge 5-6." }
+      ],
+      "traits": [
+        { "name": "Immune to Fire", "description": "Immune to all Fire-based formations and effects." }
+      ],
+      "formations": [],
+      "notes": "Desert/volcanic-fringe creature. Common near mining operations."
+    }
+  },
+  {
+    "name": "Factorat",
+    "type": "npc",
+    "img": "icons/creatures/mammals/rodent-rat-diseased-grey.webp",
+    "system": {
+      "biography": "Not a rat. Technically. A cat-sized scavenger that thrives in port cities and industrial districts, feeding on magical runoff and steel from golem workshops. Their saliva corrodes metal.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor", "durability": { "value": 0, "max": 0 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 1 }, "stealth": { "rank": 2 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Bite", "damage": "1d6", "keywords": [], "description": "Two bite attacks per turn." }
+      ],
+      "traits": [
+        { "name": "Corroding Bite", "description": "On a critical hit, deals 1 point of durability damage to armor per turn until cleansed." }
+      ],
+      "formations": [],
+      "notes": "Found in port cities and industrial districts. Always in groups."
+    }
+  },
+  {
+    "name": "Bog Strider",
+    "type": "npc",
+    "img": "icons/creatures/invertebrates/bug-mantis-green.webp",
+    "system": {
+      "biography": "A long-legged ambush predator found in the New World wetlands. Stands perfectly still in shallow water for hours. Settlers crossing swamp or wetlands on foot frequently don't see them until it's too late.",
+      "size": "medium",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "10 durability (chitin shell)", "durability": { "value": 10, "max": 10 } },
+      "movement": 35,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 3 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Lunge", "damage": "2d6", "keywords": [], "description": "Only usable from ambush or first turn of combat." },
+        { "name": "Claw", "damage": "1d6", "keywords": [], "description": "" }
+      ],
+      "traits": [
+        { "name": "Ambush Strike", "description": "If the party fails to detect the Bog Strider before combat begins, it gets a free lunge attack on a target of its choice before initiative is rolled." }
+      ],
+      "formations": [],
+      "notes": "New World wetland ambush predator. Stands motionless in water."
+    }
+  },
+  {
+    "name": "Ironhide Boar",
+    "type": "npc",
+    "img": "icons/creatures/mammals/boar-tusked-blue.webp",
+    "system": {
+      "biography": "A New World megafauna that has adapted to mineral-rich soil by growing deposits of natural iron ore beneath its skin. Popular sport hunting target among nobles. Extremely territorial, best hunted on Bronze Horses.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "30 durability (iron-laced hide)", "durability": { "value": 30, "max": 30 } },
+      "movement": 40,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Tusk", "damage": "2d6", "keywords": ["sundering"], "description": "Two tusk attacks per turn." },
+        { "name": "Charge", "damage": "2d6", "keywords": ["knocked-prone"], "description": "Knocks target prone. Usable every other turn." }
+      ],
+      "traits": [
+        { "name": "Immune to Sundering", "description": "Cannot be affected by Sundering effects." }
+      ],
+      "formations": [],
+      "notes": "Sport hunting target. Best hunted on Bronze Horses."
+    }
+  },
+  {
+    "name": "Factory Golem",
+    "type": "npc",
+    "img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
+    "system": {
+      "biography": "An industrial labor golem that has experienced a sigil failure. Its intent conduits have corrupted, leaving it locked in a work loop with no off switch. Found in abandoned or sabotaged factories. Not malicious, simply broken.\n\nAn engineer with Sigil Carving 3 may attempt to repair on a 6. Sigil Carving 4 reduces that to 5 or 6. Sigil Carving 5 reduces it to 4, 5, or 6.",
+      "size": "medium",
+      "health": { "track": "soldier", "current": "Healthy" },
+      "armor": { "label": "28 durability (iron chassis)", "durability": { "value": 28, "max": 28 } },
+      "movement": 25,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Hydraulic Fist", "damage": "1d6", "keywords": [], "description": "Two attacks per turn. Pushes target back 10'." },
+        { "name": "Steam Vent", "damage": "0", "keywords": ["area", "blinded"], "description": "Area 15' radius. Blind. Usable every other turn." }
+      ],
+      "traits": [
+        { "name": "Unstable Conduits", "description": "On a critical hit against the Golem, roll 1d6. On a 1 or 2, it triggers a random sigil discharge — GM chooses from Fire, Steam, or Lightning, targeting a random creature within 20'." },
+        { "name": "Nonlethal", "description": "The Golem will not intentionally advance targets past Severely Wounded. It is trying to get back to work, not kill anyone." }
+      ],
+      "formations": [],
+      "notes": "Can be repaired by an engineer. Sigil Carving 3: repair on 6. SC 4: 5-6. SC 5: 4-6."
+    }
+  },
+  {
+    "name": "House Agent",
+    "type": "npc",
+    "img": "icons/equipment/back/cloak-collared-teal.webp",
+    "system": {
+      "biography": "A professional operative in the employ of one of the Eight Great Houses. Calm, methodical, and very expensive. Usually encountered when the party has made itself inconvenient to someone wealthy.",
+      "size": "medium",
+      "health": { "track": "soldier", "current": "Healthy" },
+      "armor": { "label": "Light armor", "durability": { "value": 12, "max": 12 } },
+      "movement": 35,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 3 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 2 } },
+      "attacks": [
+        { "name": "Blade", "damage": "1d6", "keywords": ["armor-piercing"], "description": "Two attacks per turn." },
+        { "name": "Poison Vial", "damage": "1d6", "keywords": ["poisoned"], "description": "Range 20'. Poisoned keyword. One use." }
+      ],
+      "traits": [
+        { "name": "Mark", "description": "At the start of combat, the Agent designates one target. All their attacks against that target reroll 1s." }
+      ],
+      "formations": [],
+      "notes": "Customize weapons to make each Agent unique. Always has a specific target."
+    }
+  },
+  {
+    "name": "Miasma Hound",
+    "type": "npc",
+    "img": "icons/creatures/mammals/wolf-shadow-black.webp",
+    "system": {
+      "biography": "A wolf-sized predator warped by prolonged exposure to Death-sigil residue near old battlefields or where aether is particularly miasma-heavy. Its breath carries a weakening miasma. Hunts in packs of three to five.",
+      "size": "medium",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor", "durability": { "value": 0, "max": 0 } },
+      "movement": 35,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Bite", "damage": "1d6", "keywords": [], "description": "Two attacks per turn." },
+        { "name": "Miasma Breath", "damage": "0", "keywords": ["weakened", "area"], "description": "Area 10' cone. Weaken keyword. Recharges on 5 or 6." }
+      ],
+      "traits": [
+        { "name": "Pack Tactics", "description": "If another Miasma Hound attacks the same target this turn, attacks gain +1 to hit." },
+        { "name": "Magic-Corrupted", "description": "Immune to Miasma sigil effects." }
+      ],
+      "formations": [],
+      "notes": "Hunts in packs of 3–5. Warped by Death-sigil residue."
+    }
+  },
+  {
+    "name": "Leviathan Scout",
+    "type": "npc",
+    "img": "icons/creatures/aquatic/kraken-tentacles-blue.webp",
+    "system": {
+      "biography": "Not the full beast — few survive those. This is a juvenile, roughly the size of a river barge, driven into shallower waters or river mouths by territorial adults. Still more than enough to destroy an unprepared airship forced low by weather. Not all Leviathans are the same; some can come on land, others can propel themselves hundreds of feet into the air.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "40 durability (scale armor)", "durability": { "value": 40, "max": 40 } },
+      "movement": 50,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Tentacle", "damage": "2d6", "keywords": ["sundering"], "description": "4 attacks per turn. On a critical hit the target is immobilized for the next turn." },
+        { "name": "Surge", "damage": "1d6", "keywords": ["area", "knocked-prone"], "description": "Area 20' radius around itself. Knocks all targets prone." }
+      ],
+      "traits": [
+        { "name": "Aquatic", "description": "On water, gains +1 to all attacks. Ranged attacks against it from land get -1 to hit." },
+        { "name": "Terrifying", "description": "On first sight, all party members must succeed a DC 4+ or lose their first action to shock." }
+      ],
+      "formations": [],
+      "notes": "A juvenile Leviathan. Each one is different — GM decides if it can come on land or propel itself into the air."
+    }
+  },
+  {
+    "name": "The Conductor",
+    "type": "npc",
+    "img": "icons/creatures/magical/humanoid-silhouette-lightning-blue.webp",
+    "system": {
+      "biography": "A rogue Formation Mage who has spent decades in the New World fusing sigil theory with self-experimentation. His body is a lattice of carved conduits. He no longer casts spells — he is the formation. House Ascania pays for his location. House Magierin follows up on sightings.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "20 durability (reinforced coat) + 36 durability (active formation barrier)", "durability": { "value": 56, "max": 56 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Formation Strike", "damage": "2d6", "keywords": [], "description": "Two strikes per turn. Element chosen each turn from: Lightning, Acid, Void." },
+        { "name": "Formation Burst", "damage": "1d6", "keywords": ["area"], "description": "Area 20' radius, chosen element. Usable every other turn." }
+      ],
+      "traits": [
+        { "name": "Living Formation", "description": "Always has one Tier 2 and one Tier 3 formation active. Cannot be Nullified unless Severely Wounded or lower." },
+        { "name": "Layered Barrier", "description": "Barrier absorbs 36 durability of damage before health track is touched. Does not regenerate." },
+        { "name": "Silence Immunity", "description": "Cannot be Silenced. His intent is carved into his skin, not spoken." },
+        { "name": "Desperate Cascade", "description": "When reduced to Disfigured, all active formations detonate simultaneously in a 30' radius for 2d6 each. Then he collapses." }
+      ],
+      "formations": [],
+      "notes": "Boss-level encounter. Attack barrier (36 dur) first, then coat (20 dur), then health. Destroy barrier by reducing its durability to 0."
+    }
+  },
+  {
+    "name": "The Warden",
+    "type": "npc",
+    "img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
+    "system": {
+      "biography": "A decommissioned imperial enforcer golem, Ascania-built, recovered and reactivated by unknown parties. Stands twelve feet tall. Carries a gunlance in each hand. Originally designed to suppress mage uprisings — unfortunately it could not distinguish friend from foe.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "52 durability (experimental Mage-Killer plating)", "durability": { "value": 52, "max": 52 } },
+      "movement": 25,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Gunlance", "damage": "2d6", "keywords": ["sundering"], "description": "Two attacks per turn." },
+        { "name": "Suppression Sweep", "damage": "1d6", "keywords": ["area", "armor-piercing"], "description": "Area 30' line. Armor Piercing. Usable every third turn." }
+      ],
+      "traits": [
+        { "name": "Anti-Magic Plating", "description": "Reduces all magic damage by 2 levels. Immune to Silence, Slow, and Immobilize." },
+        { "name": "Unstoppable", "description": "Cannot be knocked prone. Immune to Push and Pull effects." },
+        { "name": "Lock On", "description": "If a target dodges one of its attacks, it gains +1 to hit that target for the rest of the battle." },
+        { "name": "Overload Shutdown", "description": "If it takes 10+ durability damage in a single hit, it skips its next turn running emergency diagnostics. Roll 2d6 and regain that much durability." }
+      ],
+      "formations": [],
+      "notes": "Boss golem. Hit it for 10+ in a single blow to trigger Overload Shutdown (it loses a turn but regains 2d6 durability). Use Sundering to strip armor fast."
+    }
+  },
+  {
+    "name": "Trapjaw Ant — Worker Drone",
+    "type": "npc",
+    "img": "icons/creatures/invertebrates/ant-fire-orange.webp",
+    "system": {
+      "biography": "Cat-sized and deceptively fast, worker drones are the first thing a party encounters near a colony. Individually manageable. The problem is they are never alone.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "6 durability (chitin)", "durability": { "value": 6, "max": 6 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 1 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Mandible Snap", "damage": "1d6", "keywords": ["armor-piercing"], "description": "" },
+        { "name": "Formic Acid Spit", "damage": "1d6", "keywords": ["area"], "description": "Area attack, range 30'." }
+      ],
+      "traits": [
+        { "name": "Colony Alert", "description": "If a drone is killed, all drones within 30' gain +1 to attack rolls until end of combat. Triggers only once — pheromone release." },
+        { "name": "Swarm Tactics", "description": "For each drone attacking the same target this turn, attacks deal +1 damage." }
+      ],
+      "formations": [],
+      "notes": "Never encountered alone. Colony Alert triggers once on first kill."
+    }
+  },
+  {
+    "name": "Trapjaw Ant — Major (Soldier)",
+    "type": "npc",
+    "img": "icons/creatures/invertebrates/ant-fire-orange.webp",
+    "system": {
+      "biography": "100 pounds of armored muscle and spring-loaded jaw. Soldiers protect the colony and escort foraging workers. They do not attack for no reason, but once the fight has begun they don't stop.",
+      "size": "medium",
+      "health": { "track": "soldier", "current": "Healthy" },
+      "armor": { "label": "18 durability (dense chitin plating)", "durability": { "value": 18, "max": 18 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 1 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Mandible Strike", "damage": "2d6", "keywords": ["armor-piercing"], "description": "Two attacks per turn." },
+        { "name": "Trap Snap", "damage": "2d6", "keywords": ["crippling"], "description": "Usable every other turn. On a crit, target is grappled and cannot move until they pass Athletics 4+ on their turn." }
+      ],
+      "traits": [
+        { "name": "Protect the Workers", "description": "If a drone within 20' is attacked, the Major may use its movement reaction to place itself between the attacker and the drone." },
+        { "name": "Relentless", "description": "Cannot be Slowed or Immobilized." }
+      ],
+      "formations": [],
+      "notes": "Protects workers. Will intercept attacks against drones as a movement reaction."
+    }
+  },
+  {
+    "name": "Trapjaw Ant — Scout",
+    "type": "npc",
+    "img": "icons/creatures/invertebrates/ant-fire-orange.webp",
+    "system": {
+      "biography": "Faster than a worker drone and built narrow for moving through undergrowth unseen. Scouts operate alone or in pairs at the colony's edge. They do not attack unless cornered. Their purpose is information. A scout that has found something interesting will shadow it for hours.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor", "durability": { "value": 0, "max": 0 } },
+      "movement": 50,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 3 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Mandible Snap", "damage": "1d6", "keywords": [], "description": "Only used if cornered with no escape." }
+      ],
+      "traits": [
+        { "name": "Shadow", "description": "Scouts will follow a party indefinitely without engaging." },
+        { "name": "Pheromone Trail", "description": "A Scout that has assessed a party lays a chemical trail back to the colony. Any Trapjaw Ant following the trail gains +1 to attack rolls against targets the Scout designated as threats." },
+        { "name": "Colony Report", "description": "A Scout that returns to the colony does not automatically trigger an attack. The colony assesses the report. A small unarmed group may be ignored. A large armed group near the colony will not be." }
+      ],
+      "formations": [],
+      "notes": "Perception Rank 2+ may notice they are being followed. Killing the scout prevents the report. The colony's response depends on what the scout reported."
+    }
+  },
+  {
+    "name": "Trapjaw Ant — Mage Caste",
+    "type": "npc",
+    "img": "icons/creatures/invertebrates/ant-fire-orange.webp",
+    "system": {
+      "biography": "Rare within the colony, identifiable by faintly glowing conduit lines etched along their carapace. They stand behind the soldiers and workers and make everything worse.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "10 durability (resin-hardened chitin)", "durability": { "value": 10, "max": 10 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Formation Strike", "damage": "1d6", "keywords": [], "description": "Element and intents determined randomly per encounter (GM rolls Tier 1 sigil + two intents)." },
+        { "name": "Mandible Snap", "damage": "1d6", "keywords": [], "description": "Used only in melee if cornered." }
+      ],
+      "traits": [
+        { "name": "Random Formation", "description": "At encounter start, GM assigns one Tier 1 sigil and two intents. These do not change. Examples: Fire+Burn+Explode, Water+Slow+Blind, Earth+Pierce+Weaken." },
+        { "name": "Escort", "description": "Always travels with 2 Soldier Ants and whatever drones they are overseeing. Never operates alone." },
+        { "name": "Colony Support", "description": "If a Mage Ant is alive when Colony Alert triggers, the attack roll bonus increases to +2 instead of +1." }
+      ],
+      "formations": [],
+      "notes": "Roll formation randomly at encounter start. Never alone — always escorted by 2 Majors."
+    }
+  },
+  {
+    "name": "Trapjaw Ant — Queen",
+    "type": "npc",
+    "img": "icons/creatures/invertebrates/ant-fire-orange.webp",
+    "system": {
+      "biography": "She does not fight. The Queen is the heart of the colony — an enormous, slow-moving egg factory the size of a draft horse, attended at all times by a wall of Soldier Ants. Reaching her means going through everything the colony has.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "60 durability (layered chitin throne-plating)", "durability": { "value": 60, "max": 60 } },
+      "movement": 10,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Mandible Swipe", "damage": "1d6", "keywords": [], "description": "Only used if attackers breach her immediate guard or threaten the brood." }
+      ],
+      "traits": [
+        { "name": "Egg Laying", "description": "At the start of each turn, the Queen lays eggs. After 3 turns, 1d6 Worker Drones hatch and immediately join combat. Cannot be stopped unless the Queen is Severely Wounded or lower." },
+        { "name": "Royal Guard", "description": "Always accompanied by a minimum of 4 Soldier Ants. These are replaced from the colony each turn as long as workers are present." },
+        { "name": "Colony Collapse", "description": "If the Queen is killed, all ants lose Colony Alert and Pack Tactics bonuses immediately. Soldiers fight on. Workers flee." },
+        { "name": "Barely Mobile", "description": "Cannot move more than 10' per turn." }
+      ],
+      "formations": [],
+      "notes": "The final objective. Killing the queen breaks colony morale. Workers flee. Focus fire on Royal Guard first."
+    }
+  },
+  {
+    "name": "Griffin",
+    "type": "npc",
+    "img": "icons/creatures/magical/gryphon-resting-darkgray.webp",
+    "system": {
+      "biography": "A large predator that dominates the boundary between the plains and forests of the New World. An apex predator, but if raised from an egg it can make a powerful partner and mount.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "48 durability (feather and fur armor)", "durability": { "value": 48, "max": 48 } },
+      "movement": 40,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Claw", "damage": "2d6", "keywords": ["sundering"], "description": "Two claw attacks per turn." },
+        { "name": "Beak", "damage": "1d6", "keywords": ["armor-piercing"], "description": "" }
+      ],
+      "traits": [],
+      "formations": [],
+      "notes": "Can be raised from an egg as a mount/partner."
+    }
+  },
+  {
+    "name": "Ironclad Wolf",
+    "type": "npc",
+    "img": "icons/creatures/mammals/wolf-shadow-black.webp",
+    "system": {
+      "biography": "Something in the deep forest changed these wolves. Their claws and teeth carry a dull metallic sheen dense enough to shear through plate as easily as flesh. They appear at the edge of the treeline, watching, until they decide to attack — that is the sole moment they let loose with a blood-chilling howl.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "20 durability (hide armor)", "durability": { "value": 20, "max": 20 } },
+      "movement": 40,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Claw Strike", "damage": "1d6", "keywords": ["sundering"], "description": "Two claw strikes per turn." },
+        { "name": "Bite", "damage": "1d6", "keywords": ["armor-piercing"], "description": "" }
+      ],
+      "traits": [
+        { "name": "Surround", "description": "Ironclad Wolves always attempt to flank. If a target has wolves on opposite sides, they cannot use dodge reactions this turn." },
+        { "name": "Strip the Armor", "description": "Ironclad Wolves prioritize armored targets first. They understand instinctively that armor is the threat." },
+        { "name": "Metal + Rend (Alpha)", "description": "On a critical hit, the target's armor loses an additional 1d6 durability as the claws tear through the metal itself." },
+        { "name": "Metal + Strengthen (Alpha)", "description": "Once per encounter, the pack alpha activates this on itself, gaining +1d6 to all damage rolls until it takes a wound." }
+      ],
+      "formations": [],
+      "notes": "Always encountered in packs of 3–8. They flank — watch for the surround. Always target armored party members first."
+    }
+  },
+  {
+    "name": "Dambuilder Beaver",
+    "type": "npc",
+    "img": "icons/creatures/mammals/beaver-brown-white.webp",
+    "system": {
+      "biography": "As large as a polar bear but relatively indifferent to anyone not made of wood. Not aggressive by nature. A threatened beaver near its dam, however, is a monster more akin to a Griffin. Notable for its fur and used by some settlers for land clearing.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "44 durability (dense layered hide and wet fur)", "durability": { "value": 44, "max": 44 } },
+      "movement": 35,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 2 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Incisor Strike", "damage": "2d6", "keywords": ["sundering"], "description": "Two attacks per turn." },
+        { "name": "Tail Slam", "damage": "2d6", "keywords": ["area", "knocked-prone"], "description": "Area 15' behind the Beaver. Knocks all targets prone. Usable every other turn." }
+      ],
+      "traits": [
+        { "name": "Dam Defense", "description": "While within 30' of its dam, the Beaver gains +1 to all attack and block rolls." },
+        { "name": "Semiaquatic", "description": "In or adjacent to water, gains +1 to all attacks. Ignores difficult terrain caused by water or mud." },
+        { "name": "Fell Anything", "description": "Sundering on incisor strikes applies double against structures, doors, wooden vehicles, and Bronze Horses." }
+      ],
+      "formations": [],
+      "notes": "Non-aggressive unless threatened or near its dam. Tail operates as Block Rank 2."
+    }
+  },
+  {
+    "name": "Jagoon",
+    "type": "npc",
+    "img": "icons/creatures/mammals/cat-hunting-crouching-spotted-yellow.webp",
+    "system": {
+      "biography": "Not often seen. More often heard — a single crack of branch above, then nothing. The Jagoon is a canopy predator, broad-shouldered and long-limbed like a great ape, with the colouration and killing apparatus of a big cat. The sabres are not for tearing. They are for precision: a single downward bite through the skull or into the back of the neck.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "36 durability (dense muscle and hide)", "durability": { "value": 36, "max": 36 } },
+      "movement": 40,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 3 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Claw Rake", "damage": "1d6", "keywords": ["sundering"], "description": "Two claw rakes per turn." },
+        { "name": "Canopy Drop", "damage": "2d6", "keywords": ["armor-piercing"], "description": "Only usable from above, requires the Jagoon to have gone undetected this turn. On a critical hit, the target is immediately Severely Wounded regardless of remaining durability." }
+      ],
+      "traits": [
+        { "name": "Silent Approach", "description": "Cannot be detected by Perception below Rank 3 while in canopy terrain. Rank 3 detects it on a 5 or 6." },
+        { "name": "Canopy Predator", "description": "If the party has not established a watch or explicitly stated they are scanning the canopy, the Jagoon gets a free Canopy Drop before initiative is rolled." },
+        { "name": "Lethal Patience", "description": "The Jagoon will not engage a group of three or more alert targets. It will withdraw, circle, and wait. It can track a party for days." },
+        { "name": "Wounded Retreat", "description": "When reduced to Moderately Wounded, the Jagoon breaks off and flees into the canopy. If the party camps in its territory, it may try again the next night." }
+      ],
+      "formations": [],
+      "notes": "Always scans the canopy — if players don't, the Jagoon gets a free Canopy Drop. The crit instant-wound should feel shocking."
+    }
+  },
+  {
+    "name": "Whip Wasp",
+    "type": "npc",
+    "img": "icons/creatures/invertebrates/wasp-bee-hornet-striped-orange.webp",
+    "system": {
+      "biography": "Torso-sized, flightless, and built around one purpose. The whip stinger is six feet of articulated chitin that functions as both weapon and ovipositor. It hunts by moisture, tracking water sources and the creatures that depend on them.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "12 durability (armored abdomen)", "durability": { "value": 12, "max": 12 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 1 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Whip Strike", "damage": "1d6", "keywords": ["crippling"], "description": "Reach 10'." },
+        { "name": "Ovipositor Strike", "damage": "0", "keywords": [], "description": "Requires target to be Moderately Wounded or lower. On a hit, target is implanted. See Implant trait." }
+      ],
+      "traits": [
+        { "name": "Moisture Tracking", "description": "Cannot be hidden from by Stealth if the target is wet or recently submerged. Perception Rank 3 equivalent for detecting water sources." },
+        { "name": "Relentless Pursuit", "description": "Immune to Slow and cannot be deterred by terrain." },
+        { "name": "Implant", "description": "Implanted target has fever symptoms. After 1d6 days without treatment (Tech or Crafting DC 5, or magical Cleanse), the larva matures. In a Croaker: kills the host, full Whip Wasp hatches. In a human: sterile offspring that imprints on humans as prey. Offspring cannot Oviposit." }
+      ],
+      "formations": [],
+      "notes": "The Ovipositor attack should feel like a horror moment. Don't rush it. Treatment: Tech/Crafting DC 5 or Cleanse."
+    }
+  },
+  {
+    "name": "Croaker",
+    "type": "npc",
+    "img": "icons/creatures/reptiles/frog-giant-green.webp",
+    "system": {
+      "biography": "Orangutan-sized toadmen, slow to anger and quick to curiosity. They live in extended family groups in the deep swamp, fish with woven reed traps, use stones to crack shells, and have a complex call-based language no imperial scholar has bothered to learn. Not aggressive toward humans by default.",
+      "size": "medium",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor", "durability": { "value": 0, "max": 0 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 2 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Club Strike (Improvised)", "damage": "1d6", "keywords": [], "description": "" },
+        { "name": "Rock Throw", "damage": "1d6", "keywords": [], "description": "Range 20'." }
+      ],
+      "traits": [
+        { "name": "Wasp Hatred", "description": "Against Whip Wasps, Croakers gain +1 to all attacks and reroll damage rolls of 1. They always act before Whip Wasps in initiative." },
+        { "name": "Swamp Knowledge", "description": "In swamp terrain, cannot be Slowed, cannot be ambushed, and have Stealth Rank 2." },
+        { "name": "Gentle Unless Pressed", "description": "Will not initiate combat with non-Whip Wasp creatures unless attacked first or a family member is threatened. Speechcraft Rank 2+ may attempt communication." },
+        { "name": "Implant Awareness", "description": "Can identify an implanted creature by smell. Will not touch an implanted individual and will gesture urgently for them to leave." }
+      ],
+      "formations": [],
+      "notes": "Potential allies. Speechcraft Rank 2+ for communication. Will furiously attack any Whip Wasps."
+    }
+  },
+  {
+    "name": "Mawroot",
+    "type": "npc",
+    "img": "icons/environment/wilderness/tree-ancient-twisted-brown.webp",
+    "system": {
+      "biography": "It looks like a tree. Very old, very large, and almost perfectly unremarkable. The pitfalls around its root system are shallow depressions covered in leaf litter, indistinguishable from the forest floor until you've already fallen through. Once something falls in, the roots close. The acid begins immediately.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "84 durability (ancient bark) + Root Cage: 40 durability", "durability": { "value": 84, "max": 84 } },
+      "movement": 0,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Acid Digest", "damage": "2d6", "keywords": [], "description": "Trapped creature takes 2d6 acid damage at start of each turn. Not enough space to use a weapon. Cannot free themselves." }
+      ],
+      "traits": [
+        { "name": "Pitfall", "description": "Any medium or smaller creature moving within 10' must pass Perception Rank 2 or Investigate Rank 1 to notice depressions. On failure they fall in. Roots close immediately." },
+        { "name": "Root Cage", "description": "Roots holding pit closed have 40 durability. Outside creatures may hack at them freely. Trapped creature cannot contribute." },
+        { "name": "Stationary", "description": "The Mawroot does not pursue, does not react to damage except to close its roots tighter, and cannot move." },
+        { "name": "Indistinguishable", "description": "Requires Perception Rank 2 or Investigate Rank 2 to identify as anything other than a large tree before someone falls in." }
+      ],
+      "formations": [],
+      "notes": "Target: Root Cage (40 dur) to free an ally. Trunk damage (84 dur) does nothing to the cage. Stationary hazard."
+    }
+  },
+  {
+    "name": "Three-Winged Magpie",
+    "type": "npc",
+    "img": "icons/creatures/birds/crow-raven-black.webp",
+    "system": {
+      "biography": "Black but strangely shiny, chattering, and deeply unsettling. The third wing, a translucent membrane threaded with faintly glowing conduits, is not used for flight. No one is entirely sure why it evolved, but most agree it allows the magpie to teleport. The whole flock seems to learn from every successful hit.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor", "durability": { "value": 0, "max": 0 } },
+      "movement": 35,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Peck", "damage": "1d6", "keywords": [], "description": "" }
+      ],
+      "traits": [
+        { "name": "Teleport", "description": "When first hit per turn, the Magpie teleports 5' in a random direction and half damage is applied." },
+        { "name": "Flock Memory", "description": "Each time any Magpie successfully hits a target, all Magpies in the encounter gain a cumulative +1 to future attack rolls against that target. Resets when the target is downed." }
+      ],
+      "formations": [],
+      "notes": "Flock Memory escalates quickly — prioritize killing individual magpies before they can stack attack bonuses."
+    }
+  },
+  {
+    "name": "Shrouded Snapping Turtle",
+    "type": "npc",
+    "img": "icons/creatures/reptiles/turtle-armored-black.webp",
+    "system": {
+      "biography": "From a distance it is a boulder. Up close it is still a boulder, right up until it isn't. The Shrouded Snapping Turtle generates a natural fog in a wide radius, siphoning strength from anything that wanders too close, until whatever it was hunting stops moving. Then it eats.",
+      "size": "large",
+      "health": { "track": "large", "current": "Healthy" },
+      "armor": { "label": "64 durability (shell armor)", "durability": { "value": 64, "max": 64 } },
+      "movement": 20,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Snap", "damage": "2d6", "keywords": ["sundering", "armor-piercing"], "description": "Two snap attacks per turn." }
+      ],
+      "traits": [
+        { "name": "Fog Zone (30' radius — always active)", "description": "Fog+Blind: -1 to all attacks in fog. Fog+Weaken: -1 to all damage in fog. Fog+Siphon: once per turn, one target loses 1d6 health which turtle absorbs. Fog+Conceal: cannot be detected by Perception below Rank 3 while inside shell." },
+        { "name": "Patient Hunter", "description": "Will not snap until a target is Moderately Wounded or lower, or until shell is attacked directly." },
+        { "name": "Shell Retreat", "description": "As a reaction to any attack, may retreat into shell. While inside: cannot snap, all incoming damage halved, fog continues." },
+        { "name": "Boulder Stillness", "description": "Has not moved this encounter: requires Perception Rank 3 or Investigate Rank 2 to identify as a living creature rather than terrain." },
+        { "name": "Swamp Sovereign", "description": "In swamp or shallow water: cannot be Slowed, Pushed, or Immobilized." }
+      ],
+      "formations": [],
+      "notes": "The fog zone is always active. Players take -1 attack and -1 damage within 30'. Siphon drains HP passively. Get in, deal damage, get out of the fog."
+    }
+  },
+  {
+    "name": "Fog Caller",
+    "type": "npc",
+    "img": "icons/creatures/birds/crow-raven-black.webp",
+    "system": {
+      "biography": "A beautiful black and red bird about the size of a heron, with white eyes that reflect no light in the fog. Its call sounds uncomfortably close to a human voice in distress. It has learned that large slow things lurking in fog tend to leave scraps worth eating.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor — dies to any attack", "durability": { "value": 0, "max": 0 } },
+      "movement": 40,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 3 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [],
+      "traits": [
+        { "name": "Fog Sight", "description": "Suffers no penalties in fog. Cannot be detected by Perception while inside a fog zone." },
+        { "name": "The Lure", "description": "Calls from the edge of a Razorbriar patch or Shrouded Snapping Turtle fog zone and retreats slowly inward. Perception Rank 2 can recognize the behavior as deliberate on a success. Rank 3 identifies it immediately." },
+        { "name": "Razorbriar Ally", "description": "Immune to Razorbriar grapple. Will perch on Razorbriar patches and call from within them." },
+        { "name": "Fragile", "description": "Dies to any attack that connects. Does not stay within reach of anything that wants to kill it." }
+      ],
+      "formations": [],
+      "notes": "Does not fight. Acts as a lure toward Razorbriar or the Shrouded Snapping Turtle. Perception 2 to notice behavior, 3 to instantly identify."
+    }
+  },
+  {
+    "name": "Thunderplume",
+    "type": "npc",
+    "img": "icons/creatures/birds/turkey-tan-brown.webp",
+    "system": {
+      "biography": "It looks like a turkey. A large, yellow and brown, somewhat stupid-looking turkey with an oversized fanned tail. New World settlers have lost more than one man to the assumption that it was an easy meal. Frontier settlements have tried putting them in pens as guard animals. This has gone poorly.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "12 durability", "durability": { "value": 12, "max": 12 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Charge Peck", "damage": "1d6", "keywords": ["armor-piercing"], "description": "Usable when closing from 15' or more. Dense beak punches through plate on a full run." },
+        { "name": "Talon Rake", "damage": "1d6", "keywords": [], "description": "" },
+        { "name": "Thunderscreech", "damage": "0", "keywords": [], "description": "Once per encounter. 20' radius. All creatures in range: -1 to dodge and block rolls until end of their next turn. Thunderplume immune to own screech." }
+      ],
+      "traits": [
+        { "name": "Absolutely Fearless", "description": "Cannot be intimidated, Slowed by fear, or made to retreat. Has engaged golems, Griffins, and at least one documented Leviathan Scout." },
+        { "name": "Deceptive Appearance", "description": "Any creature encountering a Thunderplume for the first time must pass Perception DC 5 to recognize it as a threat. On failure: cannot dodge or block the first attack." }
+      ],
+      "formations": [],
+      "notes": "Never retreats. First-time encounters: DC 5 Perception or suffer the first hit without defense. Use Thunderscreech early to debuff the party."
+    }
+  },
+  {
+    "name": "Hired Thug",
+    "type": "npc",
+    "img": "icons/equipment/hand/sword-guard-brass.webp",
+    "system": {
+      "biography": "It's a bandit hired to kick your teeth in.",
+      "size": "medium",
+      "health": { "track": "soldier", "current": "Healthy" },
+      "armor": { "label": "Light armor", "durability": { "value": 12, "max": 12 } },
+      "movement": 35,
+      "skills": { "dodge": { "rank": 0 }, "stealth": { "rank": 0 }, "block": { "rank": 1 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Weapon Strike", "damage": "1d6", "keywords": [], "description": "Weapon Mastery Rank 1 — any weapon + shield combo." }
+      ],
+      "traits": [],
+      "formations": [],
+      "notes": "Filler encounter. Customize weapon/shield combo as needed."
+    }
+  },
+  {
+    "name": "Quilled Rabbit",
+    "type": "npc",
+    "img": "icons/creatures/mammals/rabbit-ears-brown.webp",
+    "system": {
+      "biography": "A small, unassuming creature. Its quills are known for paralyzing anything foolish enough to disturb it.",
+      "size": "small",
+      "health": { "track": "standard", "current": "Healthy" },
+      "armor": { "label": "No armor", "durability": { "value": 0, "max": 0 } },
+      "movement": 30,
+      "skills": { "dodge": { "rank": 2 }, "stealth": { "rank": 0 }, "block": { "rank": 0 }, "perception": { "rank": 0 }, "athletics": { "rank": 0 }, "footwork": { "rank": 0 } },
+      "attacks": [
+        { "name": "Paralyzing Quill", "damage": "1d6", "keywords": [], "description": "6 paralyzing attacks per turn." }
+      ],
+      "traits": [],
+      "formations": [],
+      "notes": "Do not be fooled by its size. Six attacks per turn."
+    }
+  }
+]

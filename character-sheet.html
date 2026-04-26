@@ -1,0 +1,300 @@
+{{!-- Character Sheet Template --}}
+<form class="cnc-sheet cnc-character-sheet" autocomplete="off">
+
+  {{!-- HEADER --}}
+  <header class="cnc-sheet-header">
+    <div class="cnc-portrait">
+      <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+    <div class="cnc-header-fields">
+      <div class="cnc-name-row">
+        <input class="cnc-actor-name" type="text" name="name" value="{{actor.name}}" placeholder="Character Name"/>
+      </div>
+      <div class="cnc-header-meta">
+        <label>Class
+          <select name="system.class.archetype" class="cnc-inline-edit" data-field="system.class.archetype">
+            <option value="soldier" {{#if (eq system.class.archetype "soldier")}}selected{{/if}}>Soldier</option>
+            <option value="mage" {{#if (eq system.class.archetype "mage")}}selected{{/if}}>Mage</option>
+            <option value="engineer" {{#if (eq system.class.archetype "engineer")}}selected{{/if}}>Engineer</option>
+          </select>
+        </label>
+        <label>Specialization
+          <input type="text" name="system.class.specialization" value="{{system.class.specialization}}" placeholder="e.g. Close Combat"/>
+        </label>
+        <label>Background
+          <select name="system.background.rank" class="cnc-inline-edit" data-field="system.background.rank">
+            <option value="1" {{#if (eq system.background.rank 1)}}selected{{/if}}>Rank 1 — Orphan</option>
+            <option value="2" {{#if (eq system.background.rank 2)}}selected{{/if}}>Rank 2 — Peasant</option>
+            <option value="3" {{#if (eq system.background.rank 3)}}selected{{/if}}>Rank 3 — Merchant Class</option>
+            <option value="4" {{#if (eq system.background.rank 4)}}selected{{/if}}>Rank 4 — Minor Nobility</option>
+            <option value="5" {{#if (eq system.background.rank 5)}}selected{{/if}}>Rank 5 — Great House</option>
+          </select>
+        </label>
+      </div>
+      <div class="cnc-header-resources">
+        <div class="cnc-resource">
+          <span class="cnc-resource-label">Gold</span>
+          <input type="number" name="system.currency.gold" value="{{system.currency.gold}}" min="0"/>
+        </div>
+        <div class="cnc-resource">
+          <span class="cnc-resource-label">Silver</span>
+          <input type="number" name="system.currency.silver" value="{{system.currency.silver}}" min="0"/>
+        </div>
+        <div class="cnc-resource">
+          <span class="cnc-resource-label">XP Total</span>
+          <input type="number" name="system.experience.total" value="{{system.experience.total}}" min="0"/>
+        </div>
+        <div class="cnc-resource">
+          <span class="cnc-resource-label">XP Spent</span>
+          <input type="number" name="system.experience.spent" value="{{system.experience.spent}}" min="0"/>
+        </div>
+      </div>
+    </div>
+    <div class="cnc-header-actions">
+      <button type="button" class="cnc-roll-initiative cnc-btn-primary">⚡ Initiative</button>
+    </div>
+  </header>
+
+  {{!-- TABS --}}
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="core">Core</a>
+    <a class="item" data-tab="skills">Skills</a>
+    <a class="item" data-tab="magic">Magic</a>
+    <a class="item" data-tab="equipment">Equipment</a>
+    <a class="item" data-tab="biography">Biography</a>
+  </nav>
+
+  <section class="sheet-body">
+
+    {{!-- CORE TAB --}}
+    <div class="tab" data-tab="core">
+
+      {{!-- Health & Armor Row --}}
+      <div class="cnc-core-row">
+
+        <div class="cnc-panel cnc-health-panel">
+          <div class="cnc-panel-title">Health Track</div>
+          <div class="cnc-health-track-selector">
+            <label>Track:
+              <select name="system.health.track" class="cnc-inline-edit" data-field="system.health.track">
+                <option value="standard" {{#if (eq system.health.track "standard")}}selected{{/if}}>Standard</option>
+                <option value="soldier" {{#if (eq system.health.track "soldier")}}selected{{/if}}>Soldier</option>
+                <option value="large" {{#if (eq system.health.track "large")}}selected{{/if}}>Large Creature</option>
+              </select>
+            </label>
+          </div>
+          <div class="cnc-health-pips">
+            {{#each healthStates as |state|}}
+            <div class="cnc-health-pip {{#if (eq ../system.health.current state)}}active{{/if}}"
+                 data-state="{{state}}" title="{{state}}">
+              <span class="cnc-health-label">{{state}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="cnc-panel cnc-armor-panel">
+          <div class="cnc-panel-title">Armor</div>
+          <label>Type
+            <select name="system.armor.type" class="cnc-inline-edit" data-field="system.armor.type">
+              {{#each config.ARMOR_TYPES as |armor key|}}
+              <option value="{{key}}" {{#if (eq ../system.armor.type key)}}selected{{/if}}>{{armor.label}}</option>
+              {{/each}}
+            </select>
+          </label>
+          <div class="cnc-armor-durability">
+            <label>Durability
+              <input type="number" name="system.armor.durability.value" value="{{system.armor.durability.value}}" min="0"/>
+              <span class="cnc-separator">/</span>
+              <input type="number" name="system.armor.durability.max" value="{{system.armor.durability.max}}" min="0"/>
+            </label>
+          </div>
+          <div class="cnc-armor-movement">
+            <span class="cnc-label">Movement:</span>
+            <input type="number" name="system.movement" value="{{system.movement}}" min="0"/>
+            <span class="cnc-unit">ft</span>
+          </div>
+        </div>
+
+      </div>
+
+      {{!-- Attacks --}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Attacks
+          <button type="button" class="cnc-btn-tiny cnc-add-attack">+ Add</button>
+        </div>
+        <table class="cnc-attacks-table">
+          <thead>
+            <tr>
+              <th>Name</th><th>Damage</th><th>Keywords</th><th>Roll</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each items as |item|}}
+            {{#if (eq item.type "weapon")}}
+            <tr data-item-id="{{item.id}}">
+              <td class="cnc-attack-name">{{item.name}}</td>
+              <td class="cnc-attack-damage">{{item.system.damage}}</td>
+              <td class="cnc-attack-keywords">
+                {{#each item.system.keywords}}
+                <span class="cnc-keyword-tag">{{this}}</span>
+                {{/each}}
+              </td>
+              <td>
+                <button type="button" class="cnc-roll-damage cnc-btn-roll"
+                  data-formula="{{item.system.damage}}"
+                  data-keywords="{{#each item.system.keywords}}{{this}},{{/each}}"
+                  data-label="{{item.name}}">🎲 Roll</button>
+              </td>
+              <td><button type="button" class="cnc-item-delete cnc-btn-danger">×</button></td>
+            </tr>
+            {{/if}}
+            {{/each}}
+          </tbody>
+        </table>
+      </div>
+
+      {{!-- Traits --}}
+      <div class="cnc-panel">
+        <div class="cnc-panel-title">Traits & Abilities</div>
+        <div class="cnc-traits-list">
+          {{#each items as |item|}}
+          {{#if (eq item.type "trait")}}
+          <div class="cnc-trait" data-item-id="{{item.id}}">
+            <div class="cnc-trait-name">{{item.name}}</div>
+            <div class="cnc-trait-desc">{{item.system.description}}</div>
+          </div>
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+
+    </div>{{!-- /core tab --}}
+
+    {{!-- SKILLS TAB --}}
+    <div class="tab" data-tab="skills">
+      <div class="cnc-skills-columns">
+
+        <div class="cnc-skills-col">
+          <div class="cnc-panel-title">General Skills</div>
+          {{#each system.skills as |skill key|}}
+          <div class="cnc-skill-row">
+            <span class="cnc-skill-name">{{capitalize key}}</span>
+            <div class="cnc-skill-pips">
+              {{#times 3}}
+              <div class="cnc-skill-pip {{#if (lte this ../rank)}}filled{{/if}}"
+                   data-path="system.skills.{{../key}}.rank"
+                   data-rank="{{this}}"></div>
+              {{/times}}
+            </div>
+            <span class="cnc-skill-rank">Rank {{skill.rank}}</span>
+            <button type="button" class="cnc-skill-check cnc-btn-tiny"
+              data-skill="{{key}}" data-rank="{{skill.rank}}">Check</button>
+          </div>
+          {{/each}}
+        </div>
+
+        <div class="cnc-skills-col">
+          <div class="cnc-panel-title">Class Skills</div>
+          {{#each system.classSkills as |skill key|}}
+          <div class="cnc-skill-row">
+            <span class="cnc-skill-name">{{capitalize key}}</span>
+            <div class="cnc-skill-pips">
+              {{#times 5}}
+              <div class="cnc-skill-pip cnc-class-pip {{#if (lte this ../rank)}}filled{{/if}}"
+                   data-path="system.classSkills.{{../key}}.rank"
+                   data-rank="{{this}}"></div>
+              {{/times}}
+            </div>
+            <span class="cnc-skill-rank">Rank {{skill.rank}}</span>
+          </div>
+          {{/each}}
+        </div>
+
+      </div>
+    </div>{{!-- /skills tab --}}
+
+    {{!-- MAGIC TAB --}}
+    <div class="tab" data-tab="magic">
+      <div class="cnc-magic-section">
+        <div class="cnc-panel">
+          <div class="cnc-panel-title">Known Sigils</div>
+          <div class="cnc-sigil-grid">
+            {{#each config.SIGILS_T1 as |sigil|}}
+            <div class="cnc-sigil-chip cnc-t1 {{#if (contains ../system.magic.sigils sigil)}}known{{/if}}"
+                 data-sigil="{{sigil}}">{{sigil}}</div>
+            {{/each}}
+          </div>
+          <div class="cnc-incompatible">
+            <label>Incompatible Sigil (if any):
+              <input type="text" name="system.magic.incompatibleSigil"
+                     value="{{system.magic.incompatibleSigil}}" placeholder="None"/>
+            </label>
+          </div>
+        </div>
+
+        <div class="cnc-panel">
+          <div class="cnc-panel-title">Active Formations</div>
+          <textarea name="system.magic.activeFormations" class="cnc-formations-text"
+            placeholder="List active formations here (e.g. Fire + Strike, Water + Heal)...">{{system.magic.activeFormations}}</textarea>
+        </div>
+
+        <div class="cnc-panel">
+          <div class="cnc-panel-title">Formation Spells</div>
+          {{#each items as |item|}}
+          {{#if (eq item.type "formation")}}
+          <div class="cnc-formation-card" data-item-id="{{item.id}}">
+            <div class="cnc-formation-header">
+              <span class="cnc-formation-name">{{item.name}}</span>
+              <span class="cnc-formation-sigil cnc-badge">{{item.system.sigil}}</span>
+              <span class="cnc-formation-tier cnc-badge">Tier {{item.system.tier}}</span>
+            </div>
+            <div class="cnc-formation-intents">
+              {{#each item.system.intents}}
+              <span class="cnc-intent-chip">{{this}}</span>
+              {{/each}}
+            </div>
+            <div class="cnc-formation-desc">{{item.system.description}}</div>
+            <button type="button" class="cnc-roll-damage cnc-btn-roll"
+              data-formula="{{item.system.damage}}"
+              data-label="{{item.name}}">🎲 Cast</button>
+          </div>
+          {{/if}}
+          {{/each}}
+        </div>
+      </div>
+    </div>{{!-- /magic tab --}}
+
+    {{!-- EQUIPMENT TAB --}}
+    <div class="tab" data-tab="equipment">
+      <div class="cnc-equipment-list">
+        {{#each items as |item|}}
+        {{#unless (eq item.type "weapon")}}
+        {{#unless (eq item.type "formation")}}
+        {{#unless (eq item.type "trait")}}
+        <div class="cnc-equip-row" data-item-id="{{item.id}}">
+          <img class="cnc-equip-img" src="{{item.img}}"/>
+          <span class="cnc-equip-name">{{item.name}}</span>
+          <span class="cnc-equip-type cnc-badge">{{item.type}}</span>
+          <span class="cnc-equip-cost">{{item.system.cost.gold}}g {{item.system.cost.silver}}s</span>
+          <button type="button" class="cnc-item-delete cnc-btn-danger">×</button>
+        </div>
+        {{/unless}}{{/unless}}{{/unless}}
+        {{/each}}
+      </div>
+    </div>{{!-- /equipment tab --}}
+
+    {{!-- BIOGRAPHY TAB --}}
+    <div class="tab" data-tab="biography">
+      <div class="cnc-bio-section">
+        <div class="cnc-panel-title">Biography & Notes</div>
+        <div class="cnc-bio-editor">
+          {{editor system.biography target="system.biography" editable=editable button=true owner=owner}}
+        </div>
+        <div class="cnc-panel-title" style="margin-top:1rem;">Additional Notes</div>
+        <textarea name="system.notes" class="cnc-notes-area" placeholder="Session notes, contacts, quest info...">{{system.notes}}</textarea>
+      </div>
+    </div>
+
+  </section>
+</form>

@@ -1,0 +1,47 @@
+{
+  "id": "cogs-and-colonies",
+  "title": "Cogs and Colonies",
+  "description": "A Steampunk Tabletop Roleplaying System using a D6 dice mechanic set in the Great Barian Empire.",
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "11",
+    "verified": "12"
+  },
+  "authors": [
+    {
+      "name": "Cogs and Colonies"
+    }
+  ],
+  "esmodules": ["scripts/cogs-and-colonies.js"],
+  "styles": ["styles/cogs-and-colonies.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "bestiary",
+      "label": "Bestiary",
+      "path": "packs/bestiary.db",
+      "type": "Actor",
+      "system": "cogs-and-colonies"
+    },
+    {
+      "name": "items",
+      "label": "Equipment & Weapons",
+      "path": "packs/items.db",
+      "type": "Item",
+      "system": "cogs-and-colonies"
+    }
+  ],
+  "template": "template.json",
+  "socket": false,
+  "initiative": "2d6 + @skills.perception.rank",
+  "gridDistance": 5,
+  "gridUnits": "ft",
+  "primaryTokenAttribute": "health",
+  "secondaryTokenAttribute": "armor.durability"
+}
